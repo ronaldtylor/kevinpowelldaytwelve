@@ -1,0 +1,126 @@
+/* fonts
+font-family: 'Playfair Display', serif;
+font-family: 'Roboto', sans-serif; */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* this is mobile first CSS */
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3125rem;
+  line-height: 1.6;
+  color: #222c2a;
+}
+
+img {
+  /* max-width 100% lagane se image 100% se zyda badhi nahi hogi
+. choti krne par width choti hojayegi but badhi karne par
+100% width hee rhygi
+agar hum width 100% dedete toh yeh poori screen par phel jati */
+  max-width: 100%;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+section {
+  padding: 4em 0;
+}
+
+.container {
+  /* taaki font center mai ajjye choti screen par
+  and whitespace rhe left and right par and mobile size krne par width
+  adapt hojaye*/
+
+  width: 85%;
+  margin: 0 auto;
+  /* text phel rha tha badhi screen par isiliye max width 1128px
+  lagakar humne isko limit kardia ki isse badha na ho.
+  long line text ko chota kardia
+   */
+  max-width: 1128px;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  color: #f3eed9;
+}
+
+.section-title--dark {
+  color: #824936;
+}
+
+.intro {
+  background: #f3eed9;
+  display: flex;
+  align-items: center;
+  /* humne padding top bottom hatakar min-height lagadi
+  min-height ko hum px mai bhi set kr skte they and vh mai bhi */
+  min-height: 80vh;
+  text-align: center;
+  color: #924936;
+}
+
+.intro__text {
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  letter-spacing: 10px;
+  margin: 0 0 0.25em;
+}
+
+.intro__title {
+  font-size: 3rem;
+}
+
+.section-three {
+  background-color: #222c2a;
+  color: #fff;
+}
+
+.section-four {
+  background-color: #824936;
+  color: #fff;
+}
+
+/* Now we will write css with media queries for big screen */
+/* yaani ki 600px se badhi ho size toh yeh media queries apply hojaye */
+@media (min-width: 800px) {
+  /* 800px se upar hote hee column side by side ajayenge */
+  .row {
+    display: flex;
+  }
+
+  .col {
+    /* yahan humne width 100% dedi because col content ke hisaab se width le rha tha
+     and space nahi chor rha tha becz flex items shrink hojate hain
+     according to content
+     ab humne width 100% dedi toh col 100% hogye toh beech mai space bhi agaya
+     hum chahe toh flex-grow:1; bhi de skte they usse bi grow hojate hain
+    
+    wrna shrink rhte */
+    width: 100%;
+  }
+
+  .col + .col {
+    /* ab humne margin dedia left mai 2nd waale column se pehle
+      taaki beech mai accha khaasa space ajaye 
+      agar width nahi dete col ko toh margin left kaam nahi krta
+      kynki by default woh shrink hojata h according to
+      content*/
+    margin-left: 4em;
+  }
+
+  .intro__title {
+    font-size: 3.75rem;
+  }
+}
